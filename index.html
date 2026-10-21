@@ -67,10 +67,10 @@ h2{font-size:clamp(2.3rem,5.5vw,4.4rem);line-height:1;letter-spacing:-.04em;marg
 
 /* INTRO VIDEO */
 .hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:56px;align-items:center}
-.intro{position:relative;transform:rotate(2deg);transition:transform .3s}
+.intro{position:relative;transform:rotate(2deg);transition:transform .3s;width:100%;max-width:330px;justify-self:center}
 .intro:hover{transform:rotate(0)}
-.intro-frame{position:relative;aspect-ratio:16/9;border-radius:26px;overflow:hidden;background:var(--ink2);border:2px solid var(--paper);box-shadow:12px 12px 0 var(--blue)}
-.intro video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#07040f}
+.intro-frame{position:relative;aspect-ratio:9/16;border-radius:26px;overflow:hidden;background:var(--ink2);border:2px solid var(--paper);box-shadow:12px 12px 0 var(--blue)}
+.intro video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#07040f}
 .intro-empty{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:20px;color:var(--mute);background:repeating-linear-gradient(135deg,var(--ink2) 0 14px,#2a1f45 14px 28px)}
 .intro.empty .intro-empty{display:flex}
 .intro.empty video{display:none}
@@ -78,7 +78,7 @@ h2{font-size:clamp(2.3rem,5.5vw,4.4rem);line-height:1;letter-spacing:-.04em;marg
 .intro-tag{position:absolute;left:-10px;top:-16px;z-index:2;background:var(--coral);color:var(--ink);font-weight:600;font-size:.88rem;padding:6px 15px;border-radius:999px;transform:rotate(-4deg)}
 @media (max-width:979px){
   .hero-grid{grid-template-columns:1fr;gap:44px}
-  .intro{transform:none;max-width:600px}
+  .intro{transform:none;max-width:330px;justify-self:start}
   .tl h1{font-size:clamp(2.8rem,10.5vw,6rem)}
 }
 
@@ -263,7 +263,7 @@ footer{background:var(--blue);padding:30px 0 34px;color:#dfe1ff;font-size:.85rem
           <!-- INTRO VIDEO: save your file as videos/intro.mp4 (and an optional cover image as assets/intro.jpg).
                It appears here automatically. Until then, the placeholder below is shown. -->
           <video controls preload="metadata" playsinline data-thumb="intro" poster="assets/intro.jpg">
-            <source src="videos/intro.mp4" type="video/mp4" onerror="document.getElementById('introVideo').classList.add('empty')" />
+            <source src="intro.mp4" type="video/mp4" onerror="document.getElementById('introVideo').classList.add('empty')" />
           </video>
           <div class="intro-empty">
             <div class="play" aria-hidden="true">▶</div>
@@ -288,7 +288,7 @@ footer{background:var(--blue);padding:30px 0 34px;color:#dfe1ff;font-size:.85rem
         <div class="chips" role="group" aria-label="Filter videos by category">
           <button class="chip" data-filter="all" aria-pressed="true">All</button>
           <button class="chip" data-filter="long" aria-pressed="false">Long-form<small>1</small></button>
-          <button class="chip" data-filter="short" aria-pressed="false">Short-form<small>2</small></button>
+          <button class="chip" data-filter="short" aria-pressed="false">Short-form<small>3</small></button>
           <button class="chip" data-filter="food" aria-pressed="false">Food Ads<small>1</small></button>
           <button class="chip" data-filter="skin" aria-pressed="false">Skincare<small>1</small></button>
         </div>
@@ -323,6 +323,13 @@ footer{background:var(--blue);padding:30px 0 34px;color:#dfe1ff;font-size:.85rem
               </video>
               <div class="info"><div><h3>Youth Celebration</h3><p>Event recap · Short-form</p></div></div>
             </article>
+            <article class="card">
+              <video class="project-video" controls preload="metadata" playsinline data-thumb="ai-ads-1" poster="assets/ai-ads-1.jpg">
+                <source src="ai-ads-1.mp4" type="video/mp4" />
+                Your browser does not support embedded video.
+              </video>
+              <div class="info"><div><h3>AI Product Ad</h3><p>AI ad · Short-form</p></div></div>
+            </article>
           </div>
         </div>
 
@@ -336,7 +343,6 @@ footer{background:var(--blue);padding:30px 0 34px;color:#dfe1ff;font-size:.85rem
               </video>
               <div class="info"><div><h3>Food Ad</h3><p>Food ad · Short-form</p></div></div>
             </article>
-            <div class="soon"><span>🍔</span><b>More food ads coming soon</b><p style="margin:0">Add your next food ad here.</p></div>
           </div>
         </div>
 
@@ -350,7 +356,6 @@ footer{background:var(--blue);padding:30px 0 34px;color:#dfe1ff;font-size:.85rem
               </video>
               <div class="info"><div><h3>Moisturizer Ad</h3><p>Product ad · Skincare</p></div></div>
             </article>
-            <div class="soon"><span>✨</span><b>More skincare ads coming soon</b><p style="margin:0">Serums, cleansers, and routines.</p></div>
           </div>
         </div>
       </div>
