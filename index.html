@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Israel Ruamar — Video Editor specializing in long-form, short-form, food ads, and skincare ads." />
+<meta name="description" content="Israel Ruamar — Video Editor specializing in UGC, ads, animation, short-form, and long-form video." />
 <title>Israel Ruamar | Creative Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -114,6 +114,7 @@ h2{font-size:clamp(2.3rem,5.5vw,4.4rem);line-height:1;letter-spacing:-.04em;marg
 .svc:nth-child(2){background:var(--coral)}
 .svc:nth-child(3){background:#ff9f1c}
 .svc:nth-child(4){background:#ff9ecb}
+.svc:nth-child(5){background:#8fd5ff;grid-column:1/-1;min-height:200px}
 .svc .ic{font-size:2.6rem;line-height:1}
 .svc h3{font-size:1.9rem;letter-spacing:-.03em;margin:30px 0 10px}
 .svc p{margin:0;font-size:.98rem;opacity:.88}
@@ -161,10 +162,11 @@ h2{font-size:clamp(2.3rem,5.5vw,4.4rem);line-height:1;letter-spacing:-.04em;marg
 .cat-head h3{margin:0;font-size:clamp(1.6rem,3.4vw,2.4rem);letter-spacing:-.04em;line-height:1}
 .cat-head p{margin:4px 0 0;color:var(--mute);font-size:.94rem}
 .cat-head .badge{margin-left:auto;background:var(--cc)}
-.cat[data-cat="long"]{--cc:var(--sun)}
+.cat[data-cat="ugc"]{--cc:#ff9ecb}
+.cat[data-cat="ads"]{--cc:#ff9f1c}
+.cat[data-cat="anim"]{--cc:#8fd5ff}
 .cat[data-cat="short"]{--cc:var(--coral)}
-.cat[data-cat="food"]{--cc:#ff9f1c}
-.cat[data-cat="skin"]{--cc:#ff9ecb}
+.cat[data-cat="long"]{--cc:var(--sun)}
 .soon{border:2px dashed var(--line);border-radius:22px;min-height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:6px;padding:24px;color:var(--mute)}
 .soon b{font-family:var(--display);font-size:1.25rem;color:var(--paper);letter-spacing:-.02em}
 .soon span{font-size:2rem}
@@ -241,7 +243,7 @@ footer{background:var(--blue);padding:30px 0 34px;color:#dfe1ff;font-size:.85rem
   <section class="hero" id="home">
     <div class="wrap hero-grid">
       <div class="hero-main">
-      <div class="rec"><i></i>Video editor · Long-form · Short-form · Food &amp; skincare ads</div>
+      <div class="rec"><i></i>Video editor · UGC · Ads · Animation · Short &amp; long-form</div>
       <div class="tl">
         <h1>
           <span class="clip c1">Good ideas</span>
@@ -287,10 +289,91 @@ footer{background:var(--blue);padding:30px 0 34px;color:#dfe1ff;font-size:.85rem
       <div class="panel active" id="panel-video">
         <div class="chips" role="group" aria-label="Filter videos by category">
           <button class="chip" data-filter="all" aria-pressed="true">All</button>
+          <button class="chip" data-filter="ugc" aria-pressed="false">UGC<small>1</small></button>
+          <button class="chip" data-filter="ads" aria-pressed="false">Ads<small>4</small></button>
+          <button class="chip" data-filter="anim" aria-pressed="false">Animation<small>2</small></button>
+          <button class="chip" data-filter="short" aria-pressed="false">Short-form<small>1</small></button>
           <button class="chip" data-filter="long" aria-pressed="false">Long-form<small>1</small></button>
-          <button class="chip" data-filter="short" aria-pressed="false">Short-form<small>4</small></button>
-          <button class="chip" data-filter="food" aria-pressed="false">Food Ads<small>1</small></button>
-          <button class="chip" data-filter="skin" aria-pressed="false">Skincare<small>1</small></button>
+        </div>
+
+        <div class="cat" data-cat="ugc">
+          <div class="cat-head"><div class="cat-ic" aria-hidden="true">🤳</div><div><h3>UGC</h3><p>Authentic, creator-style edits that feel native to the feed.</p></div><span class="badge">UGC</span></div>
+          <div class="grid">
+            <article class="card">
+              <video class="project-video" controls preload="metadata" playsinline data-thumb="moisturizer-ad" poster="assets/moisturizer-ad.jpg">
+                <source src="videos/moisturizer-ad.mp4" type="video/mp4" />
+                Your browser does not support embedded video.
+              </video>
+              <div class="info"><div><h3>Moisturizer Ad</h3><p>UGC · Skincare</p></div></div>
+            </article>
+          </div>
+        </div>
+
+        <div class="cat" data-cat="ads">
+          <div class="cat-head"><div class="cat-ic" aria-hidden="true">📣</div><div><h3>Ads</h3><p>Product, food, and creative ads built to stop the scroll and sell.</p></div><span class="badge">Ads</span></div>
+          <div class="grid">
+            <article class="card">
+              <video class="project-video" controls preload="metadata" playsinline data-thumb="airpods-ad" poster="assets/airpods-ad.jpg">
+                <source src="videos/airpods-ad.mp4" type="video/mp4" />
+                Your browser does not support embedded video.
+              </video>
+              <div class="info"><div><h3>AirPods Ad</h3><p>Product ad</p></div></div>
+            </article>
+            <article class="card">
+              <video class="project-video" controls preload="metadata" playsinline data-thumb="ai-ads-1" poster="assets/ai-ads-1.jpg">
+                <source src="ai-ads-1.mp4" type="video/mp4" />
+                Your browser does not support embedded video.
+              </video>
+              <div class="info"><div><h3>AI Product Ad</h3><p>AI ad</p></div></div>
+            </article>
+            <article class="card">
+              <video class="project-video" controls preload="metadata" playsinline data-thumb="creative-ad" poster="assets/creative-ad.jpg">
+                <source src="videos/creative-ad.mp4" type="video/mp4" />
+                Your browser does not support embedded video.
+              </video>
+              <div class="info"><div><h3>Creative Ad Edit</h3><p>Ad editing</p></div></div>
+            </article>
+            <article class="card">
+              <video class="project-video" controls preload="metadata" playsinline data-thumb="social-reel" poster="assets/social-reel.jpg">
+                <source src="videos/social-reel.mp4" type="video/mp4" />
+                Your browser does not support embedded video.
+              </video>
+              <div class="info"><div><h3>Food Ad</h3><p>Food ad</p></div></div>
+            </article>
+          </div>
+        </div>
+
+        <div class="cat" data-cat="anim">
+          <div class="cat-head"><div class="cat-ic" aria-hidden="true">✨</div><div><h3>Animation</h3><p>Animated stories with captions, pacing, and emotion.</p></div><span class="badge">Animation</span></div>
+          <div class="grid">
+            <article class="card">
+              <video class="project-video" controls preload="metadata" playsinline data-thumb="jesus-animation" poster="assets/jesus-animation.jpg">
+                <source src="videos/jesus-animation.mp4" type="video/mp4" />
+                Your browser does not support embedded video.
+              </video>
+              <div class="info"><div><h3>Jesus Calms the Storm</h3><p>3D animation · Faith story</p></div></div>
+            </article>
+            <article class="card">
+              <video class="project-video" controls preload="metadata" playsinline data-thumb="secret-heir" poster="assets/secret-heir.jpg">
+                <source src="videos/secret-heir.mp4" type="video/mp4" />
+                Your browser does not support embedded video.
+              </video>
+              <div class="info"><div><h3>The Secret Heir</h3><p>3D animation · Captioned story</p></div></div>
+            </article>
+          </div>
+        </div>
+
+        <div class="cat" data-cat="short">
+          <div class="cat-head"><div class="cat-ic" aria-hidden="true">⚡</div><div><h3>Short-form</h3><p>Fast, punchy edits made for Reels, TikTok, and Shorts.</p></div><span class="badge">Short-form</span></div>
+          <div class="grid">
+            <article class="card">
+              <video class="project-video" controls preload="metadata" playsinline data-thumb="youth-celebration" poster="assets/youth-celebration.jpg">
+                <source src="videos/youth-celebration.mp4" type="video/mp4" />
+                Your browser does not support embedded video.
+              </video>
+              <div class="info"><div><h3>Youth Celebration</h3><p>Event recap · Short-form</p></div></div>
+            </article>
+          </div>
         </div>
 
         <div class="cat" data-cat="long">
@@ -305,74 +388,14 @@ footer{background:var(--blue);padding:30px 0 34px;color:#dfe1ff;font-size:.85rem
             </article>
           </div>
         </div>
-
-        <div class="cat" data-cat="short">
-          <div class="cat-head"><div class="cat-ic" aria-hidden="true">⚡</div><div><h3>Short-form</h3><p>Fast, punchy edits made for Reels, TikTok, and Shorts.</p></div><span class="badge">Short-form</span></div>
-          <div class="grid">
-            <article class="card">
-              <video class="project-video" controls preload="metadata" playsinline data-thumb="creative-ad" poster="assets/creative-ad.jpg">
-                <source src="videos/creative-ad.mp4" type="video/mp4" />
-                Your browser does not support embedded video.
-              </video>
-              <div class="info"><div><h3>Creative Ad Edit</h3><p>Ad editing · Short-form</p></div></div>
-            </article>
-            <article class="card">
-              <video class="project-video" controls preload="metadata" playsinline data-thumb="youth-celebration" poster="assets/youth-celebration.jpg">
-                <source src="videos/youth-celebration.mp4" type="video/mp4" />
-                Your browser does not support embedded video.
-              </video>
-              <div class="info"><div><h3>Youth Celebration</h3><p>Event recap · Short-form</p></div></div>
-            </article>
-            <article class="card">
-              <video class="project-video" controls preload="metadata" playsinline data-thumb="ai-ads-1" poster="assets/ai-ads-1.jpg">
-                <source src="ai-ads-1.mp4" type="video/mp4" />
-                Your browser does not support embedded video.
-              </video>
-              <div class="info"><div><h3>AI Product Ad</h3><p>AI ad · Short-form</p></div></div>
-            </article>
-            <article class="card">
-              <video class="project-video" controls preload="metadata" playsinline data-thumb="airpods-ad" poster="assets/airpods-ad.jpg">
-                <source src="videos/airpods-ad.mp4" type="video/mp4" />
-                Your browser does not support embedded video.
-              </video>
-              <div class="info"><div><h3>AirPods Ad</h3><p>Product ad · Short-form</p></div></div>
-            </article>
-          </div>
-        </div>
-
-        <div class="cat" data-cat="food">
-          <div class="cat-head"><div class="cat-ic" aria-hidden="true">🍜</div><div><h3>Food Ads</h3><p>Mouth-watering cuts that make people hungry to order.</p></div><span class="badge">Food Ads</span></div>
-          <div class="grid">
-            <article class="card">
-              <video class="project-video" controls preload="metadata" playsinline data-thumb="social-reel" poster="assets/social-reel.jpg">
-                <source src="videos/social-reel.mp4" type="video/mp4" />
-                Your browser does not support embedded video.
-              </video>
-              <div class="info"><div><h3>Food Ad</h3><p>Food ad · Short-form</p></div></div>
-            </article>
-          </div>
-        </div>
-
-        <div class="cat" data-cat="skin">
-          <div class="cat-head"><div class="cat-ic" aria-hidden="true">🧴</div><div><h3>Skincare</h3><p>Clean, glowing product edits for beauty brands.</p></div><span class="badge">Skincare</span></div>
-          <div class="grid">
-            <article class="card">
-              <video class="project-video" controls preload="metadata" playsinline data-thumb="moisturizer-ad" poster="assets/moisturizer-ad.jpg">
-                <source src="videos/moisturizer-ad.mp4" type="video/mp4" />
-                Your browser does not support embedded video.
-              </video>
-              <div class="info"><div><h3>Moisturizer Ad</h3><p>Product ad · Skincare</p></div></div>
-            </article>
-          </div>
-        </div>
       </div>
     </div>
   </section>
 
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
-      <span>Long-form ✦</span><span>Short-form ✦</span><span>Food Ads ✦</span><span>Skincare Ads ✦</span><span>Captions ✦</span><span>Storytelling ✦</span>
-      <span>Long-form ✦</span><span>Short-form ✦</span><span>Food Ads ✦</span><span>Skincare Ads ✦</span><span>Captions ✦</span><span>Storytelling ✦</span></div>
+      <span>UGC ✦</span><span>Ads ✦</span><span>Animation ✦</span><span>Short-form ✦</span><span>Long-form ✦</span><span>Captions ✦</span><span>Storytelling ✦</span>
+      <span>UGC ✦</span><span>Ads ✦</span><span>Animation ✦</span><span>Short-form ✦</span><span>Long-form ✦</span><span>Captions ✦</span><span>Storytelling ✦</span></div>
   </div>
 
   <section class="about" id="about">
@@ -388,7 +411,7 @@ footer{background:var(--blue);padding:30px 0 34px;color:#dfe1ff;font-size:.85rem
         <h2>Hello, I'm <em>Israel!</em></h2>
         <div class="about-copy">
           <p>I'm a <strong>video editor</strong> who enjoys turning ideas into clear, engaging, and meaningful visual stories.</p>
-          <p>From long-form event films and short-form reels to food and skincare ads, I focus on the details that help each video communicate its message: pacing, captions, sound, and storytelling. I'm always learning, improving my craft, and finding smarter ways to bring creative ideas to life.</p>
+          <p>From UGC and product ads to animated stories, short-form reels, and long-form event films, I focus on the details that help each video communicate its message: pacing, captions, sound, and storytelling. I'm always learning, improving my craft, and finding smarter ways to bring creative ideas to life.</p>
           <p>My goal is simple: help people and brands share their message with confidence through videos that feel intentional, polished, and memorable.</p>
         </div>
         <a class="btn" href="#services">What I can help with ↘</a>
@@ -402,13 +425,14 @@ footer{background:var(--blue);padding:30px 0 34px;color:#dfe1ff;font-size:.85rem
         <div>
           <h2>Video editing,<br />for every format.</h2>
         </div>
-        <p>Four types of video I edit, each shaped for where it will be watched.</p>
+        <p>Five types of video I edit, each shaped for where it will be watched.</p>
       </div>
       <div class="svc-grid">
-        <article class="svc"><div class="ic">🎞️</div><div><h3>Long-form</h3><p>Event films, highlights, and stories with smooth pacing, clean audio, and a clear beginning to end.</p></div></article>
+        <article class="svc"><div class="ic">🤳</div><div><h3>UGC</h3><p>Creator-style videos with natural hooks, honest delivery, and captions that feel native to TikTok and Reels.</p></div></article>
+        <article class="svc"><div class="ic">📣</div><div><h3>Ads</h3><p>Product, food, and skincare ads with strong hooks, clean visuals, and a clear call to action.</p></div></article>
+        <article class="svc"><div class="ic">✨</div><div><h3>Animation</h3><p>Animated stories brought to life with voice, captions, music, and pacing that keeps people watching.</p></div></article>
         <article class="svc"><div class="ic">⚡</div><div><h3>Short-form</h3><p>Reels, TikToks, and Shorts with fast cuts, captions, and hooks that keep viewers watching.</p></div></article>
-        <article class="svc"><div class="ic">🍜</div><div><h3>Food Ads</h3><p>Appetizing close-ups, rhythm, and color that make people want to order.</p></div></article>
-        <article class="svc"><div class="ic">🧴</div><div><h3>Skincare Ads</h3><p>Clean, glowing product edits and UGC-style ads for beauty brands.</p></div></article>
+        <article class="svc"><div class="ic">🎞️</div><div><h3>Long-form</h3><p>Event films, highlights, and stories with smooth pacing, clean audio, and a clear beginning to end.</p></div></article>
       </div>
     </div>
   </section>
