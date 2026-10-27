@@ -166,7 +166,8 @@ h2{font-size:clamp(2.3rem,5.5vw,4.4rem);line-height:1;letter-spacing:-.04em;marg
 .cat[data-cat="ads"]{--cc:#ff9f1c}
 .cat[data-cat="anim"]{--cc:#8fd5ff}
 .cat[data-cat="short"]{--cc:var(--coral)}
-.cat[data-cat="long"]{--cc:var(--sun)}
+.cat[data-cat="food"]{--cc:#ff9f1c}
+.cat[data-cat="skin"]{--cc:#ff9ecb}
 .soon{border:2px dashed var(--line);border-radius:22px;min-height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:6px;padding:24px;color:var(--mute)}
 .soon b{font-family:var(--display);font-size:1.25rem;color:var(--paper);letter-spacing:-.02em}
 .soon span{font-size:2rem}
@@ -218,6 +219,31 @@ footer{background:var(--blue);padding:30px 0 34px;color:#dfe1ff;font-size:.85rem
 @media (max-width:480px){
   .grid,.grid.two{grid-template-columns:1fr}
   .c2,.c3{margin-left:0}
+}
+.quick-chat{position:fixed;right:24px;bottom:24px;z-index:60;width:max-content;font-family:var(--body)}
+.chat-toggle{display:flex;align-items:center;gap:10px;border:0;border-radius:999px;padding:13px 18px;background:var(--sun);color:var(--ink);font-weight:700;box-shadow:0 8px 28px rgba(0,0,0,.3);cursor:pointer}
+.chat-toggle:hover{transform:translateY(-2px)}
+.chat-toggle-icon{font-size:1.25rem;line-height:1}
+.chat-panel{position:absolute;right:0;bottom:70px;width:min(360px,calc(100vw - 32px));max-height:min(580px,calc(100vh - 120px));display:flex;flex-direction:column;overflow:hidden;padding:0;border:1px solid var(--line);border-radius:22px;background:var(--ink2);box-shadow:0 16px 48px rgba(0,0,0,.4)}
+.chat-panel[hidden]{display:none}
+.chat-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:17px 18px;background:var(--blue)}
+.chat-head strong{font-family:var(--display);font-size:1.1rem}
+.chat-head p{margin:2px 0 0;font-size:.82rem;opacity:.85}
+.chat-close{width:36px;height:36px;border:1px solid rgba(255,255,255,.35);border-radius:50%;background:transparent;color:white;font-size:1.25rem;cursor:pointer}
+.chat-content{overflow:auto;padding:16px}
+.chat-greeting,.chat-reply{max-width:92%;padding:12px 14px;border-radius:16px 16px 16px 4px;background:#30264a;color:var(--paper);font-size:.93rem;line-height:1.5}
+.chat-greeting{margin-bottom:16px}
+.chat-log{display:grid;gap:12px;margin-bottom:16px}
+.chat-question{justify-self:end;max-width:92%;padding:10px 13px;border-radius:16px 16px 4px 16px;background:var(--blue);color:white;font-size:.9rem}
+.chat-reply{justify-self:start}
+.chat-options-label{margin:0 0 9px;color:var(--mute);font-size:.8rem}
+.chat-options{display:grid;gap:8px}
+.chat-option{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:transparent;color:var(--paper);text-align:left;font-size:.88rem;cursor:pointer}
+.chat-option:hover{border-color:var(--sun);background:rgba(255,212,59,.08)}
+.chat-contact{display:inline-block;margin-top:9px;color:var(--sun);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:480px){
+  .quick-chat{right:16px;bottom:16px}
+  .chat-panel{right:0;bottom:66px;width:min(360px,calc(100vw - 48px));max-height:calc(100vh - 100px)}
 }
 @media (prefers-reduced-motion:reduce){
   *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
@@ -281,7 +307,7 @@ footer{background:var(--blue);padding:30px 0 34px;color:#dfe1ff;font-size:.85rem
     <div class="wrap">
       <div class="head">
         <div>
-          <h2>My work in motion.</h2>
+          <h2>My works in motion.</h2>
         </div>
         <p>Browse my video edits by category.</p>
       </div>
@@ -294,6 +320,9 @@ footer{background:var(--blue);padding:30px 0 34px;color:#dfe1ff;font-size:.85rem
           <button class="chip" data-filter="anim" aria-pressed="false">Animation<small>2</small></button>
           <button class="chip" data-filter="short" aria-pressed="false">Short-form<small>1</small></button>
           <button class="chip" data-filter="long" aria-pressed="false">Long-form<small>1</small></button>
+          <button class="chip" data-filter="short" aria-pressed="false">Short-form<small>4</small></button>
+          <button class="chip" data-filter="food" aria-pressed="false">Food Ads<small>1</small></button>
+          <button class="chip" data-filter="skin" aria-pressed="false">Skincare<small>1</small></button>
         </div>
 
         <div class="cat" data-cat="ugc">
@@ -385,6 +414,19 @@ footer{background:var(--blue);padding:30px 0 34px;color:#dfe1ff;font-size:.85rem
                 Your browser does not support embedded video.
               </video>
               <div class="info"><div><h3>Church Anniversary 2026</h3><p>Event highlight · Church video</p></div></div>
+            </article>
+          </div>
+        </div>
+
+        <div class="cat" data-cat="real">
+          <div class="cat-head"><div class="cat-ic" aria-hidden="true">🏠</div><div><h3>Real Estate</h3><p>Home tours and property promos that make listings stand out.</p></div><span class="badge">Real Estate</span></div>
+          <div class="grid">
+            <article class="card">
+              <video class="project-video" controls preload="metadata" playsinline data-thumb="catchy_home_tour-compressed" poster="assets/catchy_home_tour-compressed.jpg">
+                <source src="videos/catchy_home_tour-compressed.mp4" type="video/mp4" />
+                Your browser does not support embedded video.
+              </video>
+              <div class="info"><div><h3>Catchy Home Tour</h3><p>Home tour · Real Estate</p></div></div>
             </article>
           </div>
         </div>
@@ -486,10 +528,62 @@ footer{background:var(--blue);padding:30px 0 34px;color:#dfe1ff;font-size:.85rem
   </div>
 </footer>
 
+<aside class="quick-chat" aria-label="Quick questions">
+  <section class="chat-panel" id="chatPanel" aria-label="Quick chat" hidden>
+    <div class="chat-head">
+      <div><strong>Quick chat</strong><p>Choose a question to get a quick answer.</p></div>
+      <button class="chat-close" id="chatClose" type="button" aria-label="Close quick chat">×</button>
+    </div>
+    <div class="chat-content">
+      <div class="chat-greeting">Hi! Want to know more about working with me? Pick a question below.</div>
+      <div class="chat-log" id="chatLog" aria-live="polite" aria-relevant="additions"></div>
+      <p class="chat-options-label">Choose a question</p>
+      <div class="chat-options">
+        <button class="chat-option" type="button" data-question="What kind of videos do you edit?" data-answer="I edit long-form event films, short-form videos for Reels, TikTok, and Shorts, plus food and skincare ads.">What kind of videos do you edit?</button>
+        <button class="chat-option" type="button" data-question="How much do your services cost?" data-answer="Pricing depends on the footage, video format, and scope of the project. Send me a few details and I can discuss a quote with you.">How much do your services cost?</button>
+        <button class="chat-option" type="button" data-question="How long does an edit take?" data-answer="Turnaround depends on the project scope, footage, and schedule. Share your deadline and project details so we can discuss a timeline.">How long does an edit take?</button>
+        <button class="chat-option" type="button" data-question="How can I start a project?" data-answer="Email me with your video idea, the type of edit you need, and your target deadline. I'll get back to you to discuss the next steps.">How can I start a project?</button>
+      </div>
+      <a class="chat-contact" href="mailto:israelruamar77@gmail.com">Email Israel ↗</a>
+    </div>
+  </section>
+  <button class="chat-toggle" id="chatToggle" type="button" aria-expanded="false" aria-controls="chatPanel">
+    <span class="chat-toggle-icon" aria-hidden="true">💬</span><span>Quick questions</span>
+  </button>
+</aside>
+
 <script>
 const menuBtn=document.getElementById("menuBtn"),navLinks=document.getElementById("navLinks");
 menuBtn.addEventListener("click",()=>{menuBtn.setAttribute("aria-expanded",String(navLinks.classList.toggle("open")))});
 navLinks.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{navLinks.classList.remove("open");menuBtn.setAttribute("aria-expanded","false")}));
+
+// Quick chat: selectable FAQs show prepared replies without sending data anywhere.
+const chatToggle=document.getElementById("chatToggle"),chatPanel=document.getElementById("chatPanel");
+const chatClose=document.getElementById("chatClose"),chatLog=document.getElementById("chatLog");
+const chatContent=chatPanel.querySelector(".chat-content");
+function setChatOpen(open){
+  chatPanel.hidden=!open;
+  chatToggle.setAttribute("aria-expanded",String(open));
+  if(open)chatPanel.querySelector(".chat-option").focus();
+  else chatToggle.focus();
+}
+chatToggle.addEventListener("click",()=>setChatOpen(chatPanel.hidden));
+chatClose.addEventListener("click",()=>setChatOpen(false));
+chatPanel.addEventListener("click",event=>{
+  const option=event.target.closest(".chat-option");
+  if(!option)return;
+  const question=document.createElement("div");
+  question.className="chat-question";
+  question.textContent=option.dataset.question;
+  const reply=document.createElement("div");
+  reply.className="chat-reply";
+  reply.textContent=option.dataset.answer;
+  chatLog.append(question,reply);
+  chatContent.scrollTop=chatContent.scrollHeight;
+});
+chatPanel.addEventListener("keydown",event=>{
+  if(event.key==="Escape")setChatOpen(false);
+});
 
 // Video category filter
 const chips=document.querySelectorAll(".chip"),cats=document.querySelectorAll(".cat");
