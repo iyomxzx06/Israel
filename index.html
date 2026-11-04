@@ -284,7 +284,7 @@ footer{background:var(--ink2);padding:30px 0 34px;color:var(--mute);font-size:.8
         <div class="intro-frame">
           <!-- INTRO VIDEO: save your file as videos/intro.mp4 (and an optional cover image as assets/intro.jpg).
                It appears here automatically. Until then, the placeholder below is shown. -->
-          <video controls preload="metadata" playsinline data-thumb="intro" poster="assets/intro.jpg">
+          <video controls autoplay muted preload="metadata" playsinline data-thumb="intro" poster="assets/intro.jpg">
             <source src="intro.mp4" type="video/mp4" onerror="document.getElementById('introVideo').classList.add('empty')" />
           </video>
           <div class="intro-empty">
