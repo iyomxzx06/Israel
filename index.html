@@ -123,7 +123,7 @@ h2{font-size:clamp(2.3rem,5.5vw,4.4rem);line-height:1;letter-spacing:-.04em;marg
 .see-more-wrap{display:flex;justify-content:center;margin:30px 0 42px}
 .see-more{border:1px solid var(--line);border-radius:999px;padding:12px 24px;background:transparent;color:var(--paper);font-weight:600;cursor:pointer;transition:background .2s,border-color .2s,color .2s}
 .see-more:hover{background:var(--blue);border-color:var(--blue);color:var(--ink)}
-.more-work[hidden],.featured-card[hidden]{display:none}
+.more-work[hidden],.featured-work[hidden],.see-more-wrap[hidden],.featured-card[hidden]{display:none}
 .card{display:block;border-radius:22px;overflow:hidden;background:var(--ink);border:2px solid var(--line);min-width:0;align-self:start;transition:border-color .25s,transform .25s}
 .card:hover{border-color:var(--blue);transform:translateY(-3px)}
 .wide-card{grid-column:1/-1}
@@ -151,6 +151,7 @@ h2{font-size:clamp(2.3rem,5.5vw,4.4rem);line-height:1;letter-spacing:-.04em;marg
 .cat{margin-bottom:64px}
 .cat:last-child{margin-bottom:0}
 .cat.hidden{display:none}
+.more-work.filtered .cat-head{display:none}
 .cat-head{display:flex;align-items:center;gap:18px;margin-bottom:22px;padding-bottom:18px;border-bottom:2px solid var(--cc)}
 .cat-ic{flex:none;width:58px;height:58px;border-radius:18px;background:var(--cc);color:var(--ink);display:grid;place-items:center;font-size:1.7rem}
 .cat-head h3{margin:0;font-size:clamp(1.6rem,3.4vw,2.4rem);letter-spacing:-.04em;line-height:1}
@@ -161,7 +162,6 @@ h2{font-size:clamp(2.3rem,5.5vw,4.4rem);line-height:1;letter-spacing:-.04em;marg
 .cat[data-cat="anim"]{--cc:var(--blue)}
 .cat[data-cat="short"]{--cc:var(--blue)}
 .cat[data-cat="food"]{--cc:var(--blue)}
-.cat[data-cat="skin"]{--cc:var(--blue)}
 .soon{border:2px dashed var(--line);border-radius:22px;min-height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:6px;padding:24px;color:var(--mute)}
 .soon b{font-family:var(--display);font-size:1.25rem;color:var(--paper);letter-spacing:-.02em}
 .soon span{font-size:2rem}
@@ -314,8 +314,7 @@ footer{background:var(--ink2);padding:30px 0 34px;color:var(--mute);font-size:.8
           <button class="chip" data-filter="anim" aria-pressed="false">Animation<small>2</small></button>
           <button class="chip" data-filter="short" aria-pressed="false">Short-form<small>1</small></button>
           <button class="chip" data-filter="long" aria-pressed="false">Long-form<small>1</small></button>
-          <button class="chip" data-filter="food" aria-pressed="false">Food Ads<small>1</small></button>
-          <button class="chip" data-filter="skin" aria-pressed="false">Skincare<small>1</small></button>
+          <button class="chip" data-filter="real" aria-pressed="false">Real Estate<small>1</small></button>
         </div>
 
         <div class="grid featured-work" aria-label="Featured video projects">
@@ -598,7 +597,9 @@ chatPanel.addEventListener("keydown",event=>{
 // Video category filter
 const chips=document.querySelectorAll(".chip"),cats=document.querySelectorAll(".cat");
 const featuredCards=document.querySelectorAll(".featured-card");
+const featuredWork=document.querySelector(".featured-work");
 const moreWork=document.getElementById("moreWork"),seeMore=document.getElementById("seeMore");
+const seeMoreWrap=seeMore.parentElement;
 let moreWorkExpanded=false;
 seeMore.addEventListener("click",()=>{
   moreWorkExpanded=!moreWorkExpanded;
@@ -611,13 +612,23 @@ chips.forEach(chip=>chip.addEventListener("click",()=>{
   const f=chip.dataset.filter;
   chips.forEach(c=>c.setAttribute("aria-pressed",String(c===chip)));
   const isAll=f==="all";
+  featuredCards.forEach(card=>featuredWork.append(card));
   moreWorkExpanded=false;
   seeMore.setAttribute("aria-expanded","false");
   seeMore.textContent="See more";
   seeMore.hidden=!isAll;
+  seeMoreWrap.hidden=!isAll;
+  featuredWork.hidden=!isAll;
   moreWork.hidden=isAll;
-  featuredCards.forEach(card=>{card.hidden=!isAll&&card.dataset.projectCat!==f});
+  moreWork.classList.toggle("filtered",!isAll);
+  featuredCards.forEach(card=>{card.hidden=false});
   cats.forEach(c=>c.classList.toggle("hidden",isAll?false:c.dataset.cat!==f));
+  if(!isAll){
+    const targetGrid=document.querySelector(`.cat[data-cat="${f}"] .grid`);
+    [...featuredCards].reverse().forEach(card=>{
+      if(card.dataset.projectCat===f)targetGrid.prepend(card);
+    });
+  }
   document.querySelectorAll("video").forEach(v=>v.pause());
 }));
 document.getElementById("year").textContent=new Date().getFullYear();
