@@ -132,6 +132,7 @@ h2{font-size:clamp(2.3rem,5.5vw,4.4rem);line-height:1;letter-spacing:-.04em;marg
 .info{padding:18px 20px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
 .info h3{margin:0 0 3px;font-size:1.15rem;letter-spacing:-.02em}
 .info p{margin:0;color:var(--mute);font-size:.88rem}
+.info .project-description{margin-top:6px;font-size:.84rem;line-height:1.5}
 .badge{flex:none;font-size:.75rem;font-weight:600;background:var(--blue);color:var(--ink);border-radius:999px;padding:4px 11px}
 .thumb{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;padding:20px;position:relative;overflow:hidden}
 .thumb:after{content:"";position:absolute;width:170px;height:170px;border:2px solid rgba(220,229,240,.25);border-radius:50%;right:-40px;bottom:-60px}
@@ -160,6 +161,7 @@ h2{font-size:clamp(2.3rem,5.5vw,4.4rem);line-height:1;letter-spacing:-.04em;marg
 .cat[data-cat="ugc"]{--cc:var(--blue)}
 .cat[data-cat="ads"]{--cc:var(--blue)}
 .cat[data-cat="anim"]{--cc:var(--blue)}
+.cat[data-cat="pixar"]{--cc:var(--blue)}
 .cat[data-cat="short"]{--cc:var(--blue)}
 .cat[data-cat="food"]{--cc:var(--blue)}
 .soon{border:2px dashed var(--line);border-radius:22px;min-height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:6px;padding:24px;color:var(--mute)}
@@ -309,10 +311,11 @@ footer{background:var(--ink2);padding:30px 0 34px;color:var(--mute);font-size:.8
       <div class="panel active" id="panel-video">
         <div class="chips" role="group" aria-label="Filter videos by category">
           <button class="chip" data-filter="all" aria-pressed="true">All</button>
-          <button class="chip" data-filter="ugc" aria-pressed="false">UGC<small>3</small></button>
+          <button class="chip" data-filter="ugc" aria-pressed="false">UGC<small>4</small></button>
           <button class="chip" data-filter="ads" aria-pressed="false">Ads<small>4</small></button>
           <button class="chip" data-filter="real" aria-pressed="false">Real Estate<small>1</small></button>
           <button class="chip" data-filter="anim" aria-pressed="false">Animation<small>2</small></button>
+          <button class="chip" data-filter="pixar" aria-pressed="false">Pixar<small>1</small></button>
           <button class="chip" data-filter="short" aria-pressed="false">Short-form<small>3</small></button>
           <button class="chip" data-filter="long" aria-pressed="false">Long-form<small>1</small></button>
         </div>
@@ -323,28 +326,28 @@ footer{background:var(--ink2);padding:30px 0 34px;color:var(--mute);font-size:.8
               <source src="videos/moisturizer-ad.mp4" type="video/mp4" />
               Your browser does not support embedded video.
             </video>
-            <div class="info"><div><h3>Moisturizer Ad</h3><p>UGC · Skincare</p></div></div>
+            <div class="info"><div><h3>Moisturizer Ad</h3><p>UGC · Skincare</p><p class="project-description">A creator-style product feature highlighting a moisturizer for everyday skincare.</p></div></div>
           </article>
           <article class="card featured-card" data-project-cat="ugc">
             <video class="project-video" controls preload="metadata" playsinline data-thumb="vsl" poster="assets/vsl.jpg">
               <source src="videos/vsl.mp4" type="video/mp4" />
               Your browser does not support embedded video.
             </video>
-            <div class="info"><div><h3>VSL</h3><p>UGC · Video sales letter</p></div></div>
+            <div class="info"><div><h3>VSL</h3><p>UGC · Video sales letter</p><p class="project-description">A video sales letter that introduces an offer and encourages viewers to take action.</p></div></div>
           </article>
           <article class="card featured-card" data-project-cat="ads">
             <video class="project-video" controls preload="metadata" playsinline data-thumb="creative-ad" poster="assets/creative-ad.jpg">
               <source src="videos/creative-ad.mp4" type="video/mp4" />
               Your browser does not support embedded video.
             </video>
-            <div class="info"><div><h3>Creative Ad Edit</h3><p>Ad editing</p></div></div>
+            <div class="info"><div><h3>Creative Ad Edit</h3><p>Ad editing</p><p class="project-description">A promotional edit using engaging visuals and pacing to present a product or offer.</p></div></div>
           </article>
           <article class="card featured-card" data-project-cat="ads">
             <video class="project-video" controls preload="metadata" playsinline data-thumb="ai-ads-1" poster="assets/ai-ads-1.jpg">
               <source src="ai-ads-1.mp4" type="video/mp4" />
               Your browser does not support embedded video.
             </video>
-            <div class="info"><div><h3>AI Product Ad</h3><p>AI ad</p></div></div>
+            <div class="info"><div><h3>AI Product Ad</h3><p>AI ad</p><p class="project-description">A product promotion built with AI-generated visuals and ad-focused editing.</p></div></div>
           </article>
         </div>
 
@@ -361,7 +364,14 @@ footer{background:var(--ink2);padding:30px 0 34px;color:var(--mute);font-size:.8
                 <source src="videos/vigewell-collagen-wand.mp4" type="video/mp4" />
                 Your browser does not support embedded video.
               </video>
-              <div class="info"><div><h3>Vigewell Collagen Wand</h3><p>UGC · Skincare device</p></div></div>
+              <div class="info"><div><h3>Vigewell Collagen Wand</h3><p>UGC · Skincare device</p><p class="project-description">A creator-style feature introducing the collagen wand as part of a skincare routine.</p></div></div>
+            </article>
+            <article class="card">
+              <video class="project-video" controls preload="metadata" playsinline>
+                <source src="videos/pre-trial.mp4" type="video/mp4" />
+                Your browser does not support embedded video.
+              </video>
+              <div class="info"><div><h3>Pre-Trial</h3><p>UGC · Pixar-inspired animation</p><p class="project-description">A creator-style UGC edit presented with a Pixar-inspired animated look.</p></div></div>
             </article>
           </div>
         </div>
@@ -374,14 +384,14 @@ footer{background:var(--ink2);padding:30px 0 34px;color:var(--mute);font-size:.8
                 <source src="videos/airpods-ad.mp4" type="video/mp4" />
                 Your browser does not support embedded video.
               </video>
-              <div class="info"><div><h3>AirPods Ad</h3><p>Product ad</p></div></div>
+              <div class="info"><div><h3>AirPods Ad</h3><p>Product ad</p><p class="project-description">A product-focused promo highlighting AirPods with a clean, attention-grabbing edit.</p></div></div>
             </article>
             <article class="card">
               <video class="project-video" controls preload="metadata" playsinline data-thumb="social-reel" poster="assets/social-reel.jpg">
                 <source src="videos/social-reel.mp4" type="video/mp4" />
                 Your browser does not support embedded video.
               </video>
-              <div class="info"><div><h3>Food Ad</h3><p>Food ad</p></div></div>
+              <div class="info"><div><h3>Food Ad</h3><p>Food ad</p><p class="project-description">A short food promotion designed to showcase the dish and catch viewers' attention.</p></div></div>
             </article>
           </div>
         </div>
@@ -394,14 +404,27 @@ footer{background:var(--ink2);padding:30px 0 34px;color:var(--mute);font-size:.8
                 <source src="videos/jesus-animation.mp4" type="video/mp4" />
                 Your browser does not support embedded video.
               </video>
-              <div class="info"><div><h3>Jesus Calms the Storm</h3><p>3D animation · Faith story</p></div></div>
+              <div class="info"><div><h3>Jesus Calms the Storm</h3><p>3D animation · Faith story</p><p class="project-description">An animated retelling of the Bible story where Jesus calms a storm at sea.</p></div></div>
             </article>
             <article class="card">
               <video class="project-video" controls preload="metadata" playsinline data-thumb="secret-heir" poster="assets/secret-heir.jpg">
                 <source src="videos/secret-heir.mp4" type="video/mp4" />
                 Your browser does not support embedded video.
               </video>
-              <div class="info"><div><h3>The Secret Heir</h3><p>3D animation · Captioned story</p></div></div>
+              <div class="info"><div><h3>The Secret Heir</h3><p>3D animation · Captioned story</p><p class="project-description">A dramatic animated story about a hidden heir, edited with captions.</p></div></div>
+            </article>
+          </div>
+        </div>
+
+        <div class="cat" data-cat="pixar">
+          <div class="cat-head"><div class="cat-ic" aria-hidden="true">🎬</div><div><h3>Pixar</h3><p>Pixar-inspired animation edits and visual storytelling.</p></div><span class="badge">Pixar</span></div>
+          <div class="grid two">
+            <article class="card">
+              <video class="project-video" controls preload="metadata" playsinline>
+                <source src="videos/e-commerce-pixar.mp4" type="video/mp4" />
+                Your browser does not support embedded video.
+              </video>
+              <div class="info"><div><h3>E-commerce Pixar</h3><p>Pixar-inspired animation · E-commerce</p><p class="project-description">An e-commerce promo presented through colorful, Pixar-inspired animation.</p></div></div>
             </article>
           </div>
         </div>
@@ -414,21 +437,21 @@ footer{background:var(--ink2);padding:30px 0 34px;color:var(--mute);font-size:.8
                 <source src="videos/youth-celebration.mp4" type="video/mp4" />
                 Your browser does not support embedded video.
               </video>
-              <div class="info"><div><h3>Youth Celebration</h3><p>Event recap · Short-form</p></div></div>
+              <div class="info"><div><h3>Youth Celebration</h3><p>Event recap · Short-form</p><p class="project-description">A short recap capturing moments from a youth celebration event.</p></div></div>
             </article>
             <article class="card">
               <video class="project-video" controls preload="metadata" playsinline data-thumb="lifeclass" poster="assets/lifeclass.jpg">
                 <source src="videos/lifeclass.mp4" type="video/mp4" />
                 Your browser does not support embedded video.
               </video>
-              <div class="info"><div><h3>Lifeclass</h3><p>Short-form</p></div></div>
+              <div class="info"><div><h3>Lifeclass</h3><p>Short-form</p><p class="project-description">A short clip featuring a moment or takeaway from Lifeclass.</p></div></div>
             </article>
             <article class="card">
               <video class="project-video" controls preload="metadata" playsinline data-thumb="prayer-for-3" poster="assets/prayer-for-3.jpg">
                 <source src="videos/prayer-for-3.mp4" type="video/mp4" />
                 Your browser does not support embedded video.
               </video>
-              <div class="info"><div><h3>Prayer for 3</h3><p>Short-form</p></div></div>
+              <div class="info"><div><h3>Prayer for 3</h3><p>Short-form</p><p class="project-description">A short prayer-focused video edited for a quick, shareable format.</p></div></div>
             </article>
           </div>
         </div>
@@ -441,7 +464,7 @@ footer{background:var(--ink2);padding:30px 0 34px;color:var(--mute);font-size:.8
                 <source src="videos/church-anniversary.mp4" type="video/mp4" />
                 Your browser does not support embedded video.
               </video>
-              <div class="info"><div><h3>Church Anniversary 2026</h3><p>Event highlight · Church video</p></div></div>
+              <div class="info"><div><h3>Church Anniversary 2026</h3><p>Event highlight · Church video</p><p class="project-description">A long-form highlight film celebrating the church's 2026 anniversary.</p></div></div>
             </article>
           </div>
         </div>
@@ -454,7 +477,7 @@ footer{background:var(--ink2);padding:30px 0 34px;color:var(--mute);font-size:.8
                 <source src="videos/catchy_home_tour-compressed.mp4" type="video/mp4" />
                 Your browser does not support embedded video.
               </video>
-              <div class="info"><div><h3>Catchy Home Tour</h3><p>Home tour · Real Estate</p></div></div>
+              <div class="info"><div><h3>Catchy Home Tour</h3><p>Home tour · Real Estate</p><p class="project-description">A property walkthrough highlighting the home and its key features.</p></div></div>
             </article>
           </div>
         </div>
